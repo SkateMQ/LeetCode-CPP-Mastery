@@ -1,48 +1,32 @@
 #include <iostream>
 #include <vector>
-#include <string>
-
-int calcMinRotations(const std::vector<int> &row, const std::vector<int> &row2) {
-    int result = 0;
-    int topEqBottom = 0;
-    for (int i = 1; i < row.size(); ++i) {
-        if (row[0] != row[i]) {
-            result++;
-        }
-        if (row[i] == row2[i]) {
-            topEqBottom++;
-        }
-    }
-    if (result > row.size() - topEqBottom - result) {
-        result = row.size() - topEqBottom - result;
-    }
-    return result;
-}
 
 int minDominoRotations(std::vector<int> &tops, std::vector<int> &bottoms) {
-    bool isTopWorked = true;
-    bool isBottomWorked = true;
-    int result = -1;
-    for (int i = 1; i < tops.size(); ++i) {
-        if (tops[0] != tops[i] && tops[0] != bottoms[i]) {
-            isTopWorked = false;
+    auto checkTarget = [&](int target) -> int {
+        int topRotations = 0;
+        int bottomRotations = 0;
+        for (size_t i = 0; i < tops.size(); ++i) {
+            if (target != tops[i] && target != bottoms[i]) {
+                return -1;
+            }
+            if (target != tops[i]) {
+                topRotations++;
+            }
+            if (target != bottoms[i]) {
+                bottomRotations++;
+            }
         }
-        if (bottoms[0] != tops[i] && bottoms[0] != bottoms[i]) {
-            isBottomWorked = false;
-        }
+        return std::min(topRotations, bottomRotations);
+    };
+    int topRotations = checkTarget(tops[0]);
+    if (tops[0] == bottoms[0]) {
+        return topRotations;
     }
-    if (isTopWorked) {
-        result = calcMinRotations(tops, bottoms);
+    int bottomRotations = checkTarget(bottoms[0]);
+    if (topRotations == -1 && bottomRotations == -1) {
+        return -1;
     }
-    if (isBottomWorked) {
-        int temp = calcMinRotations(bottoms, tops);
-        if (result != -1) {
-            result = std::min(result, temp);
-        } else {
-            result = temp;
-        }
-    }
-    return result;
+    return topRotations != -1 ? topRotations : bottomRotations;
 }
 
 int main() {
