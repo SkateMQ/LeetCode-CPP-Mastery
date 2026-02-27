@@ -8,36 +8,34 @@ using namespace std;
 
 class Solution {
 public:
-    vector<vector<int>> findFarmland(vector<vector<int>>& land) {
-        auto findBottomRight = [&] (int x, int y) -> vector<int> {
-            int bottom = x;
-            int right = y;
-            for (int i = x; i < land.size(); ++i) {
-                if (!land[i][y]) {
-                    break;
-                }
-                bottom = i;
+    vector<vector<int>> findFarmland(vector<vector<int>> &land) {
+        if (land.empty() || land[0].empty()) {
+            return {};
+        }
+        const size_t rows = land.size();
+        const size_t cols = land[0].size();
+        auto findBottomRightAndTagLand = [&land, rows, cols](size_t startX, size_t startY) -> pair<int, int> {
+            size_t bottom = startX;
+            size_t right = startY;
+            while (bottom < rows && land[bottom][startY] == 1) {
+                bottom++;
             }
-            for (int i = y; i < land[x].size(); ++i) {
-                if (!land[x][i]) {
-                    break;
-                }
-                right = i;
-                for (int j = x; j <= bottom; ++j) {
-                    land[j][i] = 0;
+            while (right < cols && land[startX][right] == 1) {
+                right++;
+            }
+            for (size_t i = startX; i < bottom; ++i) {
+                for (size_t j = startY; j < right; ++j) {
+                    land[i][j] = 0;
                 }
             }
-            return {bottom, right};
+            return {static_cast<int>(bottom - 1), static_cast<int>(right - 1)};
         };
         vector<vector<int>> res;
-        for (int i = 0; i < land.size(); ++i) {
-            for (int j = 0; j < land[i].size(); ++j) {
+        for (size_t i = 0; i < land.size(); ++i) {
+            for (size_t j = 0; j < land[i].size(); ++j) {
                 if (land[i][j]) {
-                    vector<int> temp{i, j, i, j};
-                    vector<int> bottomRight = findBottomRight(i, j);
-                    temp[2] = bottomRight[0];
-                    temp[3] = bottomRight[1];
-                    res.push_back(temp);
+                    auto[bottom, right] = findBottomRightAndTagLand(i, j);
+                    res.emplace_back(vector<int>{static_cast<int>(i), static_cast<int>(j), bottom, right});
                 }
             }
         }
@@ -47,9 +45,8 @@ public:
 };
 
 int main() {
-    vector<vector<int>> case1{{1, 0, 0},
-                              {0, 1, 1},
-                              {0, 1, 1}};
+    vector<vector<int>> case1{{0, 1},
+                              {1, 0}};
     Solution solution;
     vector<vector<int>> res = solution.findFarmland(case1);
     for (const vector<int>& single: res) {
