@@ -40,6 +40,72 @@ include CMakeFiles/rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = C$:/Users/Maself/CLionProjects/LeetCode-CPP-Mastery/cmake-build-debug/
+# =============================================================================
+# Object build statements for EXECUTABLE target LC1007_minimum-domino-rotations
+
+
+#############################################
+# Order-only phony target for LC1007_minimum-domino-rotations
+
+build cmake_object_order_depends_target_LC1007_minimum-domino-rotations: phony || CMakeFiles/LC1007_minimum-domino-rotations.dir
+
+build CMakeFiles/LC1007_minimum-domino-rotations.dir/src/Array/LC1007_minimum-domino-rotations.cpp.obj: CXX_COMPILER__LC1007_minimum-domino-rotations_unscanned_Debug C$:/Users/Maself/CLionProjects/LeetCode-CPP-Mastery/src/Array/LC1007_minimum-domino-rotations.cpp || cmake_object_order_depends_target_LC1007_minimum-domino-rotations
+  DEP_FILE = CMakeFiles\LC1007_minimum-domino-rotations.dir\src\Array\LC1007_minimum-domino-rotations.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\LC1007_minimum-domino-rotations.dir
+  OBJECT_FILE_DIR = CMakeFiles\LC1007_minimum-domino-rotations.dir\src\Array
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target LC1007_minimum-domino-rotations
+
+
+#############################################
+# Link the executable LC1007_minimum-domino-rotations.exe
+
+build LC1007_minimum-domino-rotations.exe: CXX_EXECUTABLE_LINKER__LC1007_minimum-domino-rotations_Debug CMakeFiles/LC1007_minimum-domino-rotations.dir/src/Array/LC1007_minimum-domino-rotations.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\LC1007_minimum-domino-rotations.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = LC1007_minimum-domino-rotations.exe
+  TARGET_IMPLIB = libLC1007_minimum-domino-rotations.dll.a
+  TARGET_PDB = LC1007_minimum-domino-rotations.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target LC1992_find-all-groups-of-farmland
+
+
+#############################################
+# Order-only phony target for LC1992_find-all-groups-of-farmland
+
+build cmake_object_order_depends_target_LC1992_find-all-groups-of-farmland: phony || CMakeFiles/LC1992_find-all-groups-of-farmland.dir
+
+build CMakeFiles/LC1992_find-all-groups-of-farmland.dir/src/Matrix/LC1992_find-all-groups-of-farmland.cpp.obj: CXX_COMPILER__LC1992_find-all-groups-of-farmland_unscanned_Debug C$:/Users/Maself/CLionProjects/LeetCode-CPP-Mastery/src/Matrix/LC1992_find-all-groups-of-farmland.cpp || cmake_object_order_depends_target_LC1992_find-all-groups-of-farmland
+  DEP_FILE = CMakeFiles\LC1992_find-all-groups-of-farmland.dir\src\Matrix\LC1992_find-all-groups-of-farmland.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\LC1992_find-all-groups-of-farmland.dir
+  OBJECT_FILE_DIR = CMakeFiles\LC1992_find-all-groups-of-farmland.dir\src\Matrix
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target LC1992_find-all-groups-of-farmland
+
+
+#############################################
+# Link the executable LC1992_find-all-groups-of-farmland.exe
+
+build LC1992_find-all-groups-of-farmland.exe: CXX_EXECUTABLE_LINKER__LC1992_find-all-groups-of-farmland_Debug CMakeFiles/LC1992_find-all-groups-of-farmland.dir/src/Matrix/LC1992_find-all-groups-of-farmland.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\LC1992_find-all-groups-of-farmland.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = LC1992_find-all-groups-of-farmland.exe
+  TARGET_IMPLIB = libLC1992_find-all-groups-of-farmland.dll.a
+  TARGET_PDB = LC1992_find-all-groups-of-farmland.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -66,6 +132,10 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build LC1007_minimum-domino-rotations: phony LC1007_minimum-domino-rotations.exe
+
+build LC1992_find-all-groups-of-farmland: phony LC1992_find-all-groups-of-farmland.exe
+
 # =============================================================================
 # Folder targets.
 
@@ -74,7 +144,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: C:/Users/Maself/CLionProjects/LeetCode-CPP-Mastery/cmake-build-debug
 
-build all: phony
+build all: phony LC1007_minimum-domino-rotations.exe LC1992_find-all-groups-of-farmland.exe
 
 # =============================================================================
 # Built-in targets

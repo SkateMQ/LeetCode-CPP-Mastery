@@ -1,2 +1,4 @@
+C:/Users/Maself/CLionProjects/LeetCode-CPP-Mastery/cmake-build-debug/CMakeFiles/LC1007_minimum-domino-rotations.dir
+C:/Users/Maself/CLionProjects/LeetCode-CPP-Mastery/cmake-build-debug/CMakeFiles/LC1992_find-all-groups-of-farmland.dir
 C:/Users/Maself/CLionProjects/LeetCode-CPP-Mastery/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/Maself/CLionProjects/LeetCode-CPP-Mastery/cmake-build-debug/CMakeFiles/rebuild_cache.dir
