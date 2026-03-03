@@ -3,7 +3,7 @@
  */
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <algorithm>
 
 using namespace std;
 
@@ -31,7 +31,9 @@ public:
         }
         for (int i = 1; i < k; ++i) {
             for (int j = 0; j < sortedNums.size() - i; ++j) {
-                sums += sortedNums[j] + sortedNums[j + i];
+                for (int l = 0; l < sortedNums.size() - i - j; ++l) {
+                    sums += sortedNums[j] + sortedNums[j + l + i];
+                }
             }
         }
         return sums;
@@ -39,8 +41,8 @@ public:
 };
 
 int main() {
-    vector<int> testCase1{1, 2, 3};
-    int k1 = 2;
+    vector<int> testCase1{0,0,0,2};
+    int k1 = 3;
     Solution solution;
     cout << solution.minMaxSums(testCase1, k1) << endl;
     return 0;
